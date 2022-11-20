@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width">
+	<title>Kanboard</title>
+	<link rel="stylesheet" href="index.css">
+	<script src="index.js"></script>
+</head>
+
+<body>
+	<div class="container">
+		<header class="header">
+			<div class="header-content">
+				<button class="button-header" type="button" onclick="kanBoard.addColumn(this)">+ Добавить колонку</button>
+				<button class="button-header" type="button" onclick="kanBoard.clear()">&times; Очистить доску</button>
+			</div>
+		</header>
+
+		<div class="board" id="list-columns"></div>
+
+		<div class="list-column" style="display: none;" id="list-column-hidden">
+			<div class="list-content">
+				<div class="list-header">
+					<div class="list-header-drag" onclick="startEditing(this)"></div> <!-- TODO: draggable -->
+					<textarea class="list-header-title" spellcheck="false" dir="auto" maxlength="512" oninput="autoGrow(this)" onblur="onLoseFocus(this)">Title</textarea>
+					<button class="list-header-close" type="button" onclick="kanBoard.columnRemove(this)">&times;</button>
+				</div>
+
+				<div class="list-cards">
+					<div class="list-card" style="display: none;" id="list-card-hidden" onclick="editCard(this)">Item</div>
+				</div>
+
+				<div class="list-footer">
+					<button class="list-btnAdd-card" type="button" onclick="kanBoard.addItem(this)">+ Добавить карточку</button>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div id="prompt-overlay" onclick="customPrompt.cancel()"></div>
+	<div id="prompt-box">
+		<div id="prompt-content">
+			<textarea id="prompt_value" value="" oninput="autoGrow(this)"></textarea>
+			<button onclick="customPrompt.ok()" class="button-header">Сохранить</button>
+		</div>
+	</div>
+</body>
+
+</html>
