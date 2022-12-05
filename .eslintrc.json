@@ -1,0 +1,63 @@
+{
+	"env": {
+		"browser": true,
+		"es6": true
+	},
+	"extends": [
+		"eslint:recommended",
+		"plugin:react/recommended",
+		"plugin:import/recommended",
+		"prettier",
+		"airbnb",
+		"eslint-config-prettier"
+	],
+	"parserOptions": {
+		"ecmaFeatures": {
+			"jsx": true
+		},
+		"ecmaVersion": "latest",
+		"sourceType": "module"
+	},
+	"plugins": ["react", "import", "prettier"],
+	"rules": {
+		"prettier/prettier": "error",
+		"comma-dangle": 0,
+		"no-tabs": 0,
+		"no-plusplus": "off",
+		"no-console": "off",
+		"no-unused-vars": "warn",
+		"indent": ["error", "tab"],
+		"react/jsx-indent": [2, "tab"],
+		"react/jsx-indent-props": [2, "tab"],
+		"react/react-in-jsx-scope": "off",
+		"react/prop-types": "off",
+		"react/destructuring-assignment": "off",
+		"react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
+		"react/no-unused-prop-types": "warn",
+		"react/prefer-stateless-function": "off",
+		"no-multi-assign": "off",
+		"import/extensions": [
+			"error",
+			"ignorePackages",
+			{
+				"js": "never",
+				"jsx": "never"
+			}
+		],
+		"import/no-extraneous-dependencies": ["error", { "devDependencies": true }]
+	},
+	"settings": {
+		react: {
+		  // Tells eslint-plugin-react to automatically detect the version of React to use.
+		  version: 'detect',
+		},
+		// Tells eslint how to resolve imports
+		'import/resolver': {
+		  node: {
+			paths: ['src'],
+			extensions: ['.js', '.jsx', '.ts', '.tsx'],
+		  },
+		},
+		"import/extensions": [".js", ".jsx"]
+	}
+}
